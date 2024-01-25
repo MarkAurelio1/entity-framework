@@ -9,33 +9,62 @@ namespace Blog
     {
         static void Main(string[] args)
         {
-            using (var context = new BlogDataContext())
-            {    //create
-                // var tag = new Tag { Name = "test1", Slug = "NewTest2" };
-                // context.Tags.Add(tag); // Salve o usuário apenas na memória
-                // context.SaveChanges(); // salva tudo que tem na memória e passa para o banco
-                //update
-                // var tag = context.Tags.FirstOrDefault(x => x.Id == 7);
-                // tag.Name = "test2";
-                // tag.Slug = "test3";
+            using var context = new BlogDataContext();
 
-                // context.Update(tag);
-                // context.SaveChanges();
+            // var user = new User
+            // {
+            //     Name = "John Doe",
+            //     Email = "john@doe.com",
+            //     Slug = "johndoe",
+            //     Bio = "1x Then Top",
+            //     Image = "https://balta.io",
+            //     PasswordHash = "12345678"
+            // };
 
-                //delete
-                // var tag = context.Tags.FirstOrDefault(x => x.Id == 1);
-                // context.Remove(tag);
-                // context.SaveChanges();
+            // var category = new Category
+            // {
+            //     Name = "Professor",
+            //     Slug = "History"
+            // };
 
-                // var tags = context.Tags.AsNoTracking().ToList(); // .ToList inclui fitros dinamicos sempre no final da query
-                // foreach (var tag in tags)
-                // {
-                //     Console.WriteLine(tag.Name);
-                // }
+            // var post = new Post
+            // {
+            //     Author = user,
+            //     Category = category,
+            //     Body = "<p>Hello World<p>",
+            //     Slug = "history-school",
+            //     Summary = "Vamos aprender sobre história",
+            //     Title = "Aprendendo História da Escola",
+            //     CreateDate = DateTime.Now,
+            //     LastUpdateDate = DateTime.Now,
+            // };
 
-                // var tag = context.Tags.AsNoTracking().FirstOrDefault(x => x.Id == 8);
-                // Console.WriteLine(tag?.Name);
-            }
+            // context.Posts.Add(post);
+            // context.SaveChanges();
+
+            // var posts = context
+            //    .Posts
+            //    .AsNoTracking()
+            //    .Include(x => x.Author)
+            //    .OrderByDescending(x => x.LastUpdateDate)
+            //    .ToList();
+
+            // foreach (var post in posts)
+            //     Console.WriteLine($"{post.Title} escrito por {post.Author?.Name}");
+
+            // var post = context
+            //   .Posts
+            //   //.AsNoTracking()
+            //   .Include(x => x.Author)
+            //   .Include(x => x.Category)
+            //   .OrderByDescending(x => x.LastUpdateDate)
+            //   .FirstOrDefault();
+
+            // post.Author.Name = "Teste";
+
+            // context.Posts.Update(post);
+            // context.SaveChanges();
+
         }
     }
 }
